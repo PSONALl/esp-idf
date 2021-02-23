@@ -104,8 +104,17 @@ int peer_add(uint16_t conn_handle);
 int peer_init(int max_peers, int max_svcs, int max_chrs, int max_dscs);
 struct peer *
 peer_find(uint16_t conn_handle);
-
-
+struct ble_gatt_db {
+    ble_uuid_any_t svc_uuid;
+    ble_uuid_any_t chr_uuid;
+    uint16_t value_handle;
+};
+struct conn_info {
+      const char *dev_name;
+      int timeout_in_msec;
+      int status;
+};
+int scli_init(void);
 #ifdef __cplusplus
 }
 #endif
